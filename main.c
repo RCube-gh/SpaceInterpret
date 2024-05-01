@@ -3,11 +3,16 @@
 int main(int argc, char const **argv){
     char foname[100] = "a.ws";
     if(argc<=1){
-        printf("ファイルを指定しろ\n");
+        printf("specify the file\n");
         return 1;
+    }else if(argc==2){
+        if(strcmp(argv[1],"-h")==0){
+            printf("Usage: ./ctos [File]\n -o [File_out]\n -h help\n");
+            return 0;
+        }
     }else if(argc>2){
-        if(argv[2]!="-o" || argc > 4){
-            printf("Usage: ws [File]\n -o [File_out]");
+        if(strcmp(argv[2],"-o") != 0 || argc > 4){
+            printf("Usage: ./ctos [File]\n -o [File_out]\n -h help\n");
         }
         strcpy(foname,argv[3]);
     }
